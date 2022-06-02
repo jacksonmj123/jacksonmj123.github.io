@@ -1,0 +1,537 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="统计出&#x2F;etc&#x2F;passwd文件中其默认shell为非&#x2F;sbin&#x2F;nologin的用户个数，并将用户都显示出来使用“cat &#x2F;etc&#x2F;passwd” 命令查看配置文件，&#x2F;sbin&#x2F;nologin都是作为行尾  使用正则表达式位置锚定将以任意字符开头，以&#x2F;sbin&#x2F;nologin结尾的用户匹配出来  确认所有&#x2F;sbin&#x2F;nologin用户都匹配出来后，使用grep -v选项将非s用户匹配出来 1ca">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第三周作业">
+<meta property="og:url" content="http://example.com/2022/05/16/%E7%AC%AC%E4%B8%89%E5%91%A8%E4%BD%9C%E4%B8%9A/index.html">
+<meta property="og:site_name" content="陈濛的博客">
+<meta property="og:description" content="统计出&#x2F;etc&#x2F;passwd文件中其默认shell为非&#x2F;sbin&#x2F;nologin的用户个数，并将用户都显示出来使用“cat &#x2F;etc&#x2F;passwd” 命令查看配置文件，&#x2F;sbin&#x2F;nologin都是作为行尾  使用正则表达式位置锚定将以任意字符开头，以&#x2F;sbin&#x2F;nologin结尾的用户匹配出来  确认所有&#x2F;sbin&#x2F;nologin用户都匹配出来后，使用grep -v选项将非s用户匹配出来 1ca">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2022/05/16/%E7%AC%AC%E4%B8%89%E5%91%A8%E4%BD%9C%E4%B8%9A/2773317-20220319094659705-1926247107.png">
+<meta property="og:image" content="http://example.com/2022/05/16/%E7%AC%AC%E4%B8%89%E5%91%A8%E4%BD%9C%E4%B8%9A/2773317-20220319095001421-991344571.png">
+<meta property="og:image" content="http://example.com/2022/05/16/%E7%AC%AC%E4%B8%89%E5%91%A8%E4%BD%9C%E4%B8%9A/2773317-20220319095232371-646067497-16527067583135.png">
+<meta property="og:image" content="http://example.com/2022/05/16/%E7%AC%AC%E4%B8%89%E5%91%A8%E4%BD%9C%E4%B8%9A/2773317-20220319095533883-1216191009-16527067614797.png">
+<meta property="og:image" content="http://example.com/2022/05/16/%E7%AC%AC%E4%B8%89%E5%91%A8%E4%BD%9C%E4%B8%9A/2773317-20220319101811066-495234554.png">
+<meta property="og:image" content="http://example.com/2022/05/16/%E7%AC%AC%E4%B8%89%E5%91%A8%E4%BD%9C%E4%B8%9A/2773317-20220319102027271-768547198.png">
+<meta property="og:image" content="http://example.com/2022/05/16/%E7%AC%AC%E4%B8%89%E5%91%A8%E4%BD%9C%E4%B8%9A/2773317-20220319102218257-1934149251.png">
+<meta property="og:image" content="http://example.com/2022/05/16/%E7%AC%AC%E4%B8%89%E5%91%A8%E4%BD%9C%E4%B8%9A/2773317-20220319112648291-253488091.png">
+<meta property="og:image" content="http://example.com/2022/05/16/%E7%AC%AC%E4%B8%89%E5%91%A8%E4%BD%9C%E4%B8%9A/2773317-20220319113041481-1237596763.png">
+<meta property="og:image" content="http://example.com/2022/05/16/%E7%AC%AC%E4%B8%89%E5%91%A8%E4%BD%9C%E4%B8%9A/2773317-20220319113202777-1053812371.png">
+<meta property="og:image" content="http://example.com/2022/05/16/%E7%AC%AC%E4%B8%89%E5%91%A8%E4%BD%9C%E4%B8%9A/2773317-20220319113635411-2031102025.png">
+<meta property="og:image" content="http://example.com/2022/05/16/%E7%AC%AC%E4%B8%89%E5%91%A8%E4%BD%9C%E4%B8%9A/2773317-20220319113742846-167530548.png">
+<meta property="og:image" content="http://example.com/2022/05/16/%E7%AC%AC%E4%B8%89%E5%91%A8%E4%BD%9C%E4%B8%9A/2773317-20220319200522070-1840354352.png">
+<meta property="og:image" content="http://example.com/2022/05/16/%E7%AC%AC%E4%B8%89%E5%91%A8%E4%BD%9C%E4%B8%9A/2773317-20220319204250534-1412215.png">
+<meta property="og:image" content="http://example.com/2022/05/16/%E7%AC%AC%E4%B8%89%E5%91%A8%E4%BD%9C%E4%B8%9A/2773317-20220319204511959-279920590.png">
+<meta property="og:image" content="http://example.com/2022/05/16/%E7%AC%AC%E4%B8%89%E5%91%A8%E4%BD%9C%E4%B8%9A/2773317-20220319204940822-937470107.png">
+<meta property="og:image" content="http://example.com/2022/05/16/%E7%AC%AC%E4%B8%89%E5%91%A8%E4%BD%9C%E4%B8%9A/2773317-20220319205043698-75513766.png">
+<meta property="og:image" content="http://example.com/2022/05/16/%E7%AC%AC%E4%B8%89%E5%91%A8%E4%BD%9C%E4%B8%9A/2773317-20220319211228782-1969476389.png">
+<meta property="og:image" content="http://example.com/2022/05/16/%E7%AC%AC%E4%B8%89%E5%91%A8%E4%BD%9C%E4%B8%9A/2773317-20220319211753616-789950823.png">
+<meta property="og:image" content="http://example.com/2022/05/16/%E7%AC%AC%E4%B8%89%E5%91%A8%E4%BD%9C%E4%B8%9A/2773317-20220319212211578-443988692.png">
+<meta property="og:image" content="http://example.com/2022/05/16/%E7%AC%AC%E4%B8%89%E5%91%A8%E4%BD%9C%E4%B8%9A/2773317-20220319212809917-234209645.png">
+<meta property="article:published_time" content="2022-05-16T13:05:09.736Z">
+<meta property="article:modified_time" content="2022-05-16T13:15:11.466Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="LINUX">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/2022/05/16/%E7%AC%AC%E4%B8%89%E5%91%A8%E4%BD%9C%E4%B8%9A/2773317-20220319094659705-1926247107.png">
+  
+  
+  <title>第三周作业 - 陈濛的博客</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="第三周作业">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-05-16 13:05" pubdate>
+        May 16, 2022 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.9k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      16 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">第三周作业</h1>
+            
+            <div class="markdown-body">
+              <h1 id="统计出-etc-passwd文件中其默认shell为非-sbin-nologin的用户个数，并将用户都显示出来"><a href="#统计出-etc-passwd文件中其默认shell为非-sbin-nologin的用户个数，并将用户都显示出来" class="headerlink" title="统计出/etc/passwd文件中其默认shell为非/sbin/nologin的用户个数，并将用户都显示出来"></a><font size=4><strong>统计出/etc/passwd文件中其默认shell为非/sbin/nologin的用户个数，并将用户都显示出来</strong></font></h1><p>使用“cat /etc/passwd” 命令查看配置文件，/sbin/nologin都是作为行尾</p>
+<p><img src="2773317-20220319094659705-1926247107.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>使用正则表达式位置锚定将以任意字符开头，以/sbin/nologin结尾的用户匹配出来</p>
+<p><img src="2773317-20220319095001421-991344571.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>确认所有/sbin/nologin用户都匹配出来后，使用grep -v选项将非s用户匹配出来</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cat</span> /etc/passwd | grep -v ``<span class="hljs-string">&quot;\(^.*/sbin/nologin$\)&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="2773317-20220319095232371-646067497-16527067583135.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p> 一个用户是一行，此时可以使用wc -l 将行数统计出来，统计出行数就可以统计出题中所需求的用户数</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@ansible ~]<span class="hljs-comment"># cat /etc/passwd | grep -v ``&quot;\(^.*/sbin/nologin$\)&quot;` `| wc -l</span><br>13<br></code></pre></td></tr></table></figure>
+
+<p>使用cut -d命令，以“：”为分隔符，将第一行取出来，就可显示出题中所需用户</p>
+<p><img src="2773317-20220319095533883-1216191009-16527067614797.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h1 id="查出用户UID最大值的用户名、UID及shell类型"><a href="#查出用户UID最大值的用户名、UID及shell类型" class="headerlink" title="查出用户UID最大值的用户名、UID及shell类型"></a><font size=4>查出用户UID最大值的用户名、UID及shell类型</font></h1><p>使用 cat /etc/passwd命令查看配置文件，发现和用户有关的参数格式都是用“USER:x:UID:GID::家目录:shell”这样的格式组成</p>
+<p><img src="2773317-20220319101811066-495234554.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>  此格式可以用“：”作为分隔符来取数据，但冒号数量不一致，此时可以使用cat /etc/passwd | tr -s “:”命令将冒号进行压缩</p>
+<p> <img src="2773317-20220319102027271-768547198.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p> 将“：”压缩之后，以“：”作为间隔符，使用cut -d”:” -f1,3,7命令取配置的第1，3，7列，这样就将所有用户的 用户名 UID shell类型给取出来了</p>
+<p><img src="2773317-20220319102218257-1934149251.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>  取出来后的数据，第二行都是大小不等的数字，此时可以使用sort命令 以“：”作为分隔符，取第二列进行反向排序</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@ansible ~]<span class="hljs-comment"># cat /etc/passwd | tr -s ``&quot;:&quot;` `| cut -d``&quot;:&quot;` `-f1,3,7 | sort -t: -k2 -rn``nfsnobody:65534:/sbin/nologin``cre:2006``user3:2005``user2:2004``user1:2003``slackware:2002``mageia:1100</span><br></code></pre></td></tr></table></figure>
+
+<p>　　排序后UID最大的用户就显示在了第一行，然后使用head命令取行首，将用户取出</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@ansible ~]<span class="hljs-comment"># cat /etc/passwd | tr -s ``&quot;:&quot;` `| cut -d``&quot;:&quot;` `-f1,3,7 | sort -t: -k2 -rn | head -1``nfsnobody:65534:/sbin/nologin</span><br></code></pre></td></tr></table></figure>
+
+<h1 id="统计当前连接本机的每个远程主机IP的连接数，并按从大到小排序"><a href="#统计当前连接本机的每个远程主机IP的连接数，并按从大到小排序" class="headerlink" title="统计当前连接本机的每个远程主机IP的连接数，并按从大到小排序"></a><font size=4>统计当前连接本机的每个远程主机IP的连接数，并按从大到小排序</font></h1><p>使用 ss -t查看当前连接的远程主机IP</p>
+<p><img src="2773317-20220319112648291-253488091.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>  需要将目标主机取出来，使用空格作为分隔符，但空格数量布确定 故使用tr -s ‘ ‘命令将空格压缩，然后使用cut命令取出其中第五列，将主机数量取出</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ss -t | <span class="hljs-built_in">tr</span> -s ``<span class="hljs-string">&#x27; &#x27;</span>` `| <span class="hljs-built_in">cut</span> -d``<span class="hljs-string">&#x27; &#x27;</span>` `-f 5<br></code></pre></td></tr></table></figure>
+
+<p> 取出主机数量后发现第一行不是题目所需内容 使用tail -n +2将第一行剔除掉，得到了远程主机的信息</p>
+<p><img src="2773317-20220319113041481-1237596763.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p> 得到远程主机信息后发现后面还带有端口号，使用正则表达式将IP过滤出来</p>
+<p><img src="2773317-20220319113202777-1053812371.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p> 使用 sort命令进行一次排序，将IP地址按照顺序列出来，然后使用uniq -c进行去重和统计IP出现次数</p>
+<p><img src="2773317-20220319113635411-2031102025.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p> 最后使用 sort -nr将IP从大到小排列出来</p>
+<p><img src="2773317-20220319113742846-167530548.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h1 id="编写脚本disk-sh，显示当前硬盘分区中空间利用率最大的值"><a href="#编写脚本disk-sh，显示当前硬盘分区中空间利用率最大的值" class="headerlink" title=" 编写脚本disk.sh，显示当前硬盘分区中空间利用率最大的值"></a><font size=4> 编写脚本disk.sh，显示当前硬盘分区中空间利用率最大的值</font></h1><p>使用df命令查看已经挂载的文件系统信息</p>
+<p><img src="2773317-20220319200522070-1840354352.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p> 使用正则表达式将分区信息和利用率匹配出来</p>
+<p><img src="2773317-20220319204250534-1412215.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p> 使用sort -rn 倒序将分区利用率从大到小排序，使用head命令将利用率最高的分区取出来</p>
+<p><img src="2773317-20220319204511959-279920590.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p> 编写成脚本</p>
+<p><img src="2773317-20220319204940822-937470107.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p> <img src="2773317-20220319205043698-75513766.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h1 id="编写脚本-systeminfo-sh，显示当前主机系统信息，包括-主机名，IPv4地址，操作系统版本，内核版本，CPU型号，内存大小，硬盘大小"><a href="#编写脚本-systeminfo-sh，显示当前主机系统信息，包括-主机名，IPv4地址，操作系统版本，内核版本，CPU型号，内存大小，硬盘大小" class="headerlink" title=" 编写脚本 systeminfo.sh，显示当前主机系统信息，包括:主机名，IPv4地址，操作系统版本，内核版本，CPU型号，内存大小，硬盘大小"></a><font size=4> 编写脚本 systeminfo.sh，显示当前主机系统信息，包括:主机名，IPv4地址，操作系统版本，内核版本，CPU型号，内存大小，硬盘大小</font></h1><p> 使用命令将主机名 ip4地址 os版本 内核版本 cpu 内存和硬盘大小显示出来</p>
+<p>主机名：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@ansible ~]<span class="hljs-comment"># hostname``ansible</span><br></code></pre></td></tr></table></figure>
+
+<p>ip4地址</p>
+<p><img src="2773317-20220319211228782-1969476389.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p> os版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@ansible ~]<span class="hljs-comment"># cat /etc/centos-release``CentOS Linux release 7.9.2009 (Core)</span><br></code></pre></td></tr></table></figure>
+
+<p>内核版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@ansible ~]<span class="hljs-comment"># uname -r``3.10.0-1160.el7.x86_64</span><br></code></pre></td></tr></table></figure>
+
+<p>cpu型号</p>
+<p><img src="2773317-20220319211753616-789950823.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p> 内存大小</p>
+<p><img src="2773317-20220319212211578-443988692.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p> 硬盘大小</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@ansible ~]<span class="hljs-comment"># lsblk | sed -rn ``&#x27;s/.*(50G).*/\1/p&#x27;``50G</span><br></code></pre></td></tr></table></figure>
+
+<p>写成脚本</p>
+<p><img src="2773317-20220319212809917-234209645.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E4%BD%9C%E4%B8%9A/">作业</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/LINUX/">LINUX</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/05/16/%E7%AC%AC%E5%9B%9B%E5%91%A8%E4%BD%9C%E4%B8%9A/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">第四周作业</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/05/16/%E7%AC%AC%E4%BA%8C%E5%91%A8%E4%BD%9C%E4%B8%9A/">
+                        <span class="hidden-mobile">第二周作业</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

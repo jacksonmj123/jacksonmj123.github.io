@@ -1,0 +1,583 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="前言完全免费  codeup.aliyun.com申请账号，也可以使用淘宝支付宝账号登录  登录github.com申请账号  安装windows git, https:&#x2F;&#x2F;gitforwindows.org&#x2F; 下载之后，直接安装。 需要先验证git, windows 打开 CMD , 输入 git --version 看到版本号，说明git安装OK     安装windows node, htt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="快速搭建个人博客">
+<meta property="og:url" content="http://example.com/2022/05/17/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/index.html">
+<meta property="og:site_name" content="陈濛的博客">
+<meta property="og:description" content="前言完全免费  codeup.aliyun.com申请账号，也可以使用淘宝支付宝账号登录  登录github.com申请账号  安装windows git, https:&#x2F;&#x2F;gitforwindows.org&#x2F; 下载之后，直接安装。 需要先验证git, windows 打开 CMD , 输入 git --version 看到版本号，说明git安装OK     安装windows node, htt">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2022/05/17/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/image-20220517211357219-16527932393901.png">
+<meta property="og:image" content="http://example.com/2022/05/17/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/image-20220517211458280-16527932999412.png">
+<meta property="og:image" content="http://example.com/2022/05/17/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/image-20220517212501406-16527939027894.png">
+<meta property="og:image" content="http://example.com/2022/05/17/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/image-20220517212644973-16527940068205.png">
+<meta property="og:image" content="http://example.com/2022/05/17/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/image-20220517213006593-16527942083116.png">
+<meta property="og:image" content="http://example.com/2022/05/17/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/image-20220513094320097.png">
+<meta property="og:image" content="http://example.com/2022/05/17/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/image-20220513095212339.png">
+<meta property="og:image" content="http://example.com/2022/05/17/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/image-20220513095237808.png">
+<meta property="og:image" content="http://example.com/2022/05/17/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/image-20220519192223479-16529593456271.png">
+<meta property="og:image" content="http://example.com/2022/05/17/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/image-20220519192515911-16529595176632.png">
+<meta property="og:image" content="http://example.com/2022/05/17/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/image-20220519192703441-16529596268043.png">
+<meta property="og:image" content="http://example.com/2022/05/17/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/image-20220519192839573-16529597218534.png">
+<meta property="og:image" content="http://example.com/2022/05/17/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/image-20220519193346621-16529600281395.png">
+<meta property="og:image" content="http://example.com/2022/05/17/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/image-20220519195016173-16529610174826.png">
+<meta property="og:image" content="http://example.com/2022/05/17/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/image-20220519195214067-16529611359537.png">
+<meta property="og:image" content="http://example.com/2022/05/17/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/image-20220519195326959-16529612089318.png">
+<meta property="og:image" content="http://example.com/2022/05/17/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/image-20220513101358650.png">
+<meta property="og:image" content="http://example.com/2022/05/17/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/image-20220513101431944.png">
+<meta property="og:image" content="http://example.com/2022/05/17/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/image-20220519195555039-165296135718411.png">
+<meta property="og:image" content="http://example.com/2022/05/17/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/image-20220519195818567-165296149976313.png">
+<meta property="og:image" content="http://example.com/2022/05/17/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/image-20220519195851328-165296153221314.png">
+<meta property="og:image" content="http://example.com/2022/05/17/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/image-20220513101902870.png">
+<meta property="og:image" content="http://example.com/2022/05/17/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/image-20220513101910710.png">
+<meta property="og:image" content="http://example.com/2022/05/17/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/image-20220513101941108.png">
+<meta property="og:image" content="http://example.com/2022/05/17/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/image-20220513102015626.png">
+<meta property="og:image" content="http://example.com/2022/05/17/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/image-20220513102242848.png">
+<meta property="og:image" content="http://example.com/2022/05/17/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/image-20220513102317624.png">
+<meta property="og:image" content="http://example.com/2022/05/17/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/image-20220519200342182-165296182327723.png">
+<meta property="og:image" content="http://example.com/2022/05/17/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/image-20220513102349111.png">
+<meta property="og:image" content="http://example.com/2022/05/17/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/image-20220513102417620.png">
+<meta property="og:image" content="http://example.com/2022/05/17/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/image-20220513102440868.png">
+<meta property="og:image" content="http://example.com/2022/05/17/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/image-20220513103852668.png">
+<meta property="og:image" content="http://example.com/2022/05/17/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/image-20220519200628663-165296199013327.png">
+<meta property="og:image" content="http://example.com/2022/05/17/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/image-20220519200756238-165296211431129.png">
+<meta property="og:image" content="http://example.com/2022/05/17/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/image-20220519201003321-165296220428630.png">
+<meta property="og:image" content="http://example.com/2022/05/17/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/image-20220519201118270-165296227926431.png">
+<meta property="og:image" content="http://example.com/2022/05/17/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/image-20220519201153504-165296231481632.png">
+<meta property="og:image" content="http://example.com/2022/05/17/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/image-20220519201520775-165296252272633.png">
+<meta property="article:published_time" content="2022-05-17T13:10:41.000Z">
+<meta property="article:modified_time" content="2022-05-19T12:15:48.423Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/2022/05/17/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/image-20220517211357219-16527932393901.png">
+  
+  
+  <title>快速搭建个人博客 - 陈濛的博客</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="快速搭建个人博客">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-05-17 13:10" pubdate>
+        May 17, 2022 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.6k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      14 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">快速搭建个人博客</h1>
+            
+            <div class="markdown-body">
+              <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>完全免费</p>
+<ol>
+<li><p><code>codeup.aliyun.com</code>申请账号，也可以使用淘宝支付宝账号登录</p>
+</li>
+<li><p>登录<code>github.com</code>申请账号</p>
+</li>
+<li><p>安装windows git, <a target="_blank" rel="noopener" href="https://gitforwindows.org/">https://gitforwindows.org/</a> 下载之后，直接安装。</p>
+<p>需要先验证git, windows 打开 <code>CMD</code> , 输入 <code>git --version</code> <strong>看到</strong>版本号，说明git安装OK</p>
+</li>
+</ol>
+<p><img src="image-20220517211357219-16527932393901.png" srcset="/img/loading.gif" lazyload alt="image-20220517211357219"></p>
+<ol start="4">
+<li><p>安装windows node, <a target="_blank" rel="noopener" href="https://nodejs.org/en/download/">https://nodejs.org/en/download/</a> 下载之后，直接安装</p>
+<p>需要先验证node, windows 打开 <code>CMD</code> , 输入 <code>node --version</code> <strong>看到</strong>版本号，说明node安装OK</p>
+<p><img src="image-20220517211458280-16527932999412.png" srcset="/img/loading.gif" lazyload alt="image-20220517211458280"></p>
+<ol start="5">
+<li><p>安装vscode, <a target="_blank" rel="noopener" href="https://code.visualstudio.com/">https://code.visualstudio.com/</a> 下载之后，直接安装</p>
+</li>
+<li><p>安装[^typora], <a target="_blank" rel="noopener" href="https://typora.io/releases/all">https://typora.io/releases/all</a> 下载, 直接安装</p>
+<hr>
+<h1 id="准备hexo基础模板"><a href="#准备hexo基础模板" class="headerlink" title="准备hexo基础模板"></a>准备hexo基础模板</h1><p>克隆git, 在CMD执行, 以下目录</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br></pre></div></td><td class="code"><pre><code class="hljs awk">git clone --recurse-submodules https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/slcnx/</span>hexo-template.git blog<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>不成功多执行几次，看到100%就表示成功了 </p>
+</blockquote>
+<p>进入克隆目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> blog<br></code></pre></td></tr></table></figure>
+
+<p><img src="image-20220517212501406-16527939027894.png" srcset="/img/loading.gif" lazyload alt="image-20220517212501406"></p>
+</li>
+</ol>
+</li>
+</ol>
+<p>​            克隆子项目<code>git submodule update --init --recursive</code></p>
+<p>​            安装依赖<code> npm install</code></p>
+<p>​            现在在命令行输入 <code>start .</code></p>
+<p>​            看到如下界面</p>
+<p><img src="image-20220517212644973-16527940068205.png" srcset="/img/loading.gif" lazyload alt="image-20220517212644973"></p>
+<h1 id="vscode打开目录-运行服务"><a href="#vscode打开目录-运行服务" class="headerlink" title="vscode打开目录, 运行服务"></a>vscode打开目录, 运行服务</h1><p>搜索<code>visual studio code</code>打开<code>blog</code>目录，进入如下界面</p>
+<p><img src="image-20220517213006593-16527942083116.png" srcset="/img/loading.gif" lazyload alt="image-20220517213006593"></p>
+<p>安装插件, 并退出vscode程序，之后重新 <code>blog</code>目录, 右键 <strong>通过 Code</strong> 打开</p>
+<p><img src="image-20220513094320097.png" srcset="/img/loading.gif" lazyload alt="image-20220513094320097"></p>
+<p>现在快捷键 <strong>ctrl + shift + `</strong> 运行 <strong>npx hexo s</strong></p>
+<p><img src="image-20220513095212339.png" srcset="/img/loading.gif" lazyload alt="image-20220513095212339"></p>
+<p>访问本地的4000 <a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/</a></p>
+<p><img src="image-20220513095237808.png" srcset="/img/loading.gif" lazyload alt="image-20220513095237808"></p>
+<h1 id="github准备"><a href="#github准备" class="headerlink" title="github准备"></a>github准备</h1><h2 id="准备github仓库"><a href="#准备github仓库" class="headerlink" title="准备github仓库"></a>准备github仓库</h2><p>登录github，新建仓库</p>
+<p><img src="image-20220519192223479-16529593456271.png" srcset="/img/loading.gif" lazyload alt="image-20220519192223479"></p>
+<p>新建仓库 <code> 格式是</code>用户名.github.io</p>
+<p><img src="image-20220519192515911-16529595176632.png" srcset="/img/loading.gif" lazyload alt="image-20220519192515911"></p>
+<p>添加一个测试文件</p>
+<p><img src="image-20220519192703441-16529596268043.png" srcset="/img/loading.gif" lazyload alt="image-20220519192703441"></p>
+<p>一定要添加<code>index.html</code></p>
+<p><img src="image-20220519192839573-16529597218534.png" srcset="/img/loading.gif" lazyload alt="image-20220519192839573"></p>
+<p>添加之后，刷新网页，过3分钟的样子，右下角出现 active，网页可以正常访问</p>
+<p><img src="image-20220519193346621-16529600281395.png" srcset="/img/loading.gif" lazyload alt="image-20220519193346621"></p>
+<h2 id="配置github"><a href="#配置github" class="headerlink" title="配置github"></a>配置github</h2><p>在linux主机上执行<code>ssh-keygen -t rsa -b 4096 -f id_rsa_2048 -P &#39;&#39;</code>命令，生成密钥对，使用cat命令查看公钥</p>
+<p><img src="image-20220519195016173-16529610174826.png" srcset="/img/loading.gif" lazyload alt="image-20220519195016173"></p>
+<p>复制公钥内容，打开新建的内容仓库，选择deploy key，添加公钥</p>
+<p><img src="image-20220519195214067-16529611359537.png" srcset="/img/loading.gif" lazyload alt="image-20220519195214067"></p>
+<h2 id="获取ssh地址"><a href="#获取ssh地址" class="headerlink" title="获取ssh地址"></a>获取ssh地址</h2><p><img src="image-20220519195326959-16529612089318.png" srcset="/img/loading.gif" lazyload alt="image-20220519195326959"></p>
+<hr>
+<h1 id="code准备"><a href="#code准备" class="headerlink" title="code准备"></a>code准备</h1><h2 id="准备code仓库"><a href="#准备code仓库" class="headerlink" title="准备code仓库"></a>准备code仓库</h2><p><img src="image-20220513101358650.png" srcset="/img/loading.gif" lazyload alt="image-20220513101358650"></p>
+<p><img src="image-20220513101431944.png" srcset="/img/loading.gif" lazyload alt="image-20220513101431944"></p>
+<p>获取https地址</p>
+<p><img src="image-20220519195555039-165296135718411.png" srcset="/img/loading.gif" lazyload alt="image-20220519195555039"></p>
+<h2 id="本地推送代码"><a href="#本地推送代码" class="headerlink" title="本地推送代码"></a>本地推送代码</h2><p>先在blog目录中， 即进入CMD中，在blog目录中</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">git remote set-url origin https://codeup.aliyun.com/5f73e5a3728df4b180fab5ca/myblog-2022-05-14.git<br></code></pre></td></tr></table></figure>
+
+<p>推送代码, 双击push.sh</p>
+<p><img src="image-20220519195818567-165296149976313.png" srcset="/img/loading.gif" lazyload alt="image-20220519195818567"></p>
+<p>代码仓库, 已经有数据了</p>
+<p><img src="image-20220519195851328-165296153221314.png" srcset="/img/loading.gif" lazyload alt="image-20220519195851328"></p>
+<h2 id="添加流水线"><a href="#添加流水线" class="headerlink" title="添加流水线"></a>添加流水线</h2><h3 id="进入流水线页面"><a href="#进入流水线页面" class="headerlink" title="进入流水线页面"></a>进入流水线页面</h3><p><img src="image-20220513101902870.png" srcset="/img/loading.gif" lazyload alt="image-20220513101902870"></p>
+<p><img src="image-20220513101910710.png" srcset="/img/loading.gif" lazyload alt="image-20220513101910710"></p>
+<p><img src="image-20220513101941108.png" srcset="/img/loading.gif" lazyload alt="image-20220513101941108"></p>
+<h3 id="配置流水线"><a href="#配置流水线" class="headerlink" title="配置流水线"></a>配置流水线</h3><p><img src="image-20220513102015626.png" srcset="/img/loading.gif" lazyload alt="image-20220513102015626"></p>
+<p>定义构建镜像</p>
+<p><img src="image-20220513102242848.png" srcset="/img/loading.gif" lazyload alt="image-20220513102242848"></p>
+<p><img src="image-20220513102317624.png" srcset="/img/loading.gif" lazyload alt="image-20220513102317624"></p>
+<p>配置构建参考，<strong>非常关键</strong>, 这里有3个参数</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">EMAIL</span>       你的QQ邮箱 <br><span class="hljs-attribute">GUSER</span>       你的用户名，任意<br><span class="hljs-attribute">GITHUB</span>      这里一定是你上面github创建的仓库的ssh地址，参考<span class="hljs-number">4</span>.<span class="hljs-number">4</span>获取githubssh地址。<br></code></pre></td></tr></table></figure>
+
+<p><img src="image-20220519200342182-165296182327723.png" srcset="/img/loading.gif" lazyload alt="image-20220519200342182"></p>
+<p>不需要发布所以删除kubernetes</p>
+<p><img src="image-20220513102349111.png" srcset="/img/loading.gif" lazyload alt="image-20220513102349111"></p>
+<p>保存并运行</p>
+<h3 id="运行流水线"><a href="#运行流水线" class="headerlink" title="运行流水线"></a>运行流水线</h3><p><img src="image-20220513102417620.png" srcset="/img/loading.gif" lazyload alt="image-20220513102417620"></p>
+<h3 id="查看日志"><a href="#查看日志" class="headerlink" title="查看日志"></a>查看日志</h3><p><img src="image-20220513102440868.png" srcset="/img/loading.gif" lazyload alt="image-20220513102440868"></p>
+<p><img src="image-20220513103852668.png" srcset="/img/loading.gif" lazyload alt="image-20220513103852668"></p>
+<h3 id="查看github-com"><a href="#查看github-com" class="headerlink" title="查看github.com"></a>查看github.com</h3><p>我的已经存在，所以显示已过去三天</p>
+<p><img src="image-20220519200628663-165296199013327.png" srcset="/img/loading.gif" lazyload alt="image-20220519200628663"></p>
+<h1 id="查看网页"><a href="#查看网页" class="headerlink" title="查看网页"></a>查看网页</h1><p><a target="_blank" rel="noopener" href="https://jacksonmj123.github.io/">https://jacksonmj123.github.io/</a></p>
+<p><img src="image-20220519200756238-165296211431129.png" srcset="/img/loading.gif" lazyload alt="image-20220519200756238"></p>
+<h1 id="写新的文章"><a href="#写新的文章" class="headerlink" title="写新的文章"></a>写新的文章</h1><p>运行<code>addarticle.sh</code>脚本, 输入标题</p>
+<p><img src="image-20220519201003321-165296220428630.png" srcset="/img/loading.gif" lazyload alt="image-20220519201003321"></p>
+<p>会自动弹出博客编写页面 编写文章<strong>分享4</strong></p>
+<p><img src="image-20220519201118270-165296227926431.png" srcset="/img/loading.gif" lazyload alt="image-20220519201118270"></p>
+<p><img src="image-20220519201153504-165296231481632.png" srcset="/img/loading.gif" lazyload alt="image-20220519201153504"></p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs http">---<br><span class="hljs-attribute">title</span><span class="hljs-punctuation">: </span>分享4<br><span class="hljs-attribute">tags</span>:<br>  - linux<br><span class="hljs-attribute">categories</span>:<br>  - hexo<br><span class="hljs-attribute">date</span><span class="hljs-punctuation">: </span>2022-05-13 10:26:14<br>---<br><br># 背景<br><br>hello<br><br>![image-20220513102937310](第3个文章/image-20220513102937310.png)<br><br>&lt;!--more--&gt;<br></code></pre></td></tr></table></figure>
+
+<p>使用push.sh发布文章</p>
+<h1 id="自定义网页样式"><a href="#自定义网页样式" class="headerlink" title="自定义网页样式"></a>自定义网页样式</h1><p>config.yml自定义网页样式</p>
+<p><img src="image-20220519201520775-165296252272633.png" srcset="/img/loading.gif" lazyload alt="image-20220519201520775"></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E5%88%86%E4%BA%AB/">分享</a>
+                    
+                  </div>
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/05/19/%E5%88%86%E4%BA%AB4/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">分享4</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/05/16/markdown%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/">
+                        <span class="hidden-mobile">（转）markdow常用操作</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

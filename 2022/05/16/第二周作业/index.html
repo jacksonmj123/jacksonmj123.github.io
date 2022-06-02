@@ -1,0 +1,497 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="显示&#x2F;etc目录下，以非字母开头，后面跟了一个字母以及其它任意长度任意字符的文件或目录 12345[root@ansible etc]# ll [^[:alpha:]][:alpha:]?*ls: 无法访问[^[:alpha:]][:alpha:]*: 没有那个文件或目录[root@ansible etc]# touch 1adj356[root@ansible etc]# ll [^[:alph">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第二周作业">
+<meta property="og:url" content="http://example.com/2022/05/16/%E7%AC%AC%E4%BA%8C%E5%91%A8%E4%BD%9C%E4%B8%9A/index.html">
+<meta property="og:site_name" content="陈濛的博客">
+<meta property="og:description" content="显示&#x2F;etc目录下，以非字母开头，后面跟了一个字母以及其它任意长度任意字符的文件或目录 12345[root@ansible etc]# ll [^[:alpha:]][:alpha:]?*ls: 无法访问[^[:alpha:]][:alpha:]*: 没有那个文件或目录[root@ansible etc]# touch 1adj356[root@ansible etc]# ll [^[:alph">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-05-16T12:57:11.000Z">
+<meta property="article:modified_time" content="2022-05-16T13:04:11.660Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="LINUX">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  <title>第二周作业 - 陈濛的博客</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="第二周作业">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-05-16 12:57" pubdate>
+        May 16, 2022 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.9k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      24 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">第二周作业</h1>
+            
+            <div class="markdown-body">
+              <p><strong>显示/etc目录下，以非字母开头，后面跟了一个字母以及其它任意长度任意字符的文件或目录</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></div></td><td class="code"><pre><code class="hljs bash">[root@ansible etc]<span class="hljs-comment"># ll [^[:alpha:]][:alpha:]?*</span><br><span class="hljs-built_in">ls</span>: 无法访问[^[:alpha:]][:alpha:]*: 没有那个文件或目录<br>[root@ansible etc]<span class="hljs-comment"># touch 1adj356</span><br>[root@ansible etc]<span class="hljs-comment"># ll [^[:alpha:]][:alpha:]?*</span><br>-rw-r--r-- 1 root root 0 3月 10 14:00 1adj356<br></code></pre></td></tr></table></figure>
+
+<p><strong>复制/etc目录下所有以p开头，以非数字结尾的文件或目录到/tmp/mytest1目录中。</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@ansible etc]<span class="hljs-comment"># mkdir /tmp/mytest1</span><br><br>[root@ansible etc]<span class="hljs-comment"># cp -r p?*[^[:digit:]] /tmp/mytest1/</span><br><br>[root@ansible etc]<span class="hljs-comment"># cd /tmp/mytest1/</span><br>[root@ansible mytest1]<span class="hljs-comment"># ll</span><br>总用量 52<br>drwxr-xr-x 2 root root 4096 3月 10 14:08 pam.d<br>-rw-r--r-- 1 root root 68 3月 10 14:08 papersize<br>-rw-r--r-- 1 root root 2912 3月 10 14:08 passwd<br>-rw-r--r-- 1 root root 2869 3月 10 14:08 passwd-<br>-rw-r--r-- 1 root root 1362 3月 10 14:08 pbm2ppa.conf<br>-rw-r--r-- 1 root root 2872 3月 10 14:08 pinforc<br>drwxr-xr-x 12 root root 151 3月 10 14:08 pki<br>drwxr-xr-x 2 root root 28 3月 10 14:08 plymouth<br>-rw-r--r-- 1 root root 6300 3月 10 14:08 pnm2ppa.conf<br>drwxr-xr-x 2 root root 6 3月 10 14:08 popt.d<br>drwxr-xr-x 2 root root 154 3月 10 14:08 postfix<br>drwxr-xr-x 3 root root 219 3月 10 14:08 ppp<br>drwxr-xr-x 2 root root 105 3月 10 14:08 prelink.conf.d<br>-rw-r--r-- 1 root root 233 3月 10 14:08 printcap<br>-rw-r--r-- 1 root root 1819 3月 10 14:08 profile<br>drwxr-xr-x 2 root root 4096 3月 10 14:08 profile.d<br>-rw-r--r-- 1 root root 6545 3月 10 14:08 protocols<br>drwxr-xr-x 2 root root 79 3月 10 14:08 pulse<br>drwxr-xr-x 2 root root 23 3月 10 14:08 purple<br>drwxr-xr-x 2 root root 35 3月 10 14:08 python<br></code></pre></td></tr></table></figure>
+
+<p><strong>将/etc/issue文件中的内容转换为大写后保存至/tmp/issue.out文件中</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@ansible mytest1]<span class="hljs-comment"># cat /etc/issue | tr &#x27;[a-z]&#x27; &#x27;[A-Z]&#x27; &gt; /tmp/issue.out</span><br>[root@ansible mytest1]<span class="hljs-comment"># cat /tmp/issue.out</span><br>\S<br>KERNEL \R ON AN \M<br></code></pre></td></tr></table></figure>
+
+<p><strong>请总结描述用户和组管理类命令的使用方法并完成以下练习：</strong></p>
+<p><strong>创建组distro，其GID为2019</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">groupadd -g 2019 distro<br></code></pre></td></tr></table></figure>
+
+<p><strong>创建用户mandriva, 其ID号为1005；基本组为distro</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">useradd -u 1005 -g distro mandriva<br></code></pre></td></tr></table></figure>
+
+<p><strong>创建用户mageia，其ID号为1100，家目录为/home/linux</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">useradd -u 1100 -d /home/linux mageia<br></code></pre></td></tr></table></figure>
+
+<p><strong>给用户mageia添加密码，密码为mageedu，并设置用户密码7天后过期</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">echo</span> mageedu | passwd --stdin mageia ; chage -M 7 mageia<br></code></pre></td></tr></table></figure>
+
+<p><strong>删除mandriva，但保留其家目录</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">userdel mandriva<br></code></pre></td></tr></table></figure>
+
+<p><strong>创建用户slackware，其ID号为2002，基本组为distro，附加组peguin</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">groupadd peguin ; useradd -u 2002 -g distro -G peguin slackware<br></code></pre></td></tr></table></figure>
+
+<p><strong>修改slackware的默认shell为/bin/tcsh</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">usermod -s /bin/tcsh slackware<br></code></pre></td></tr></table></figure>
+
+<p><strong>为用户slackware新增附加组admins，并设置不可登陆</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">groupadd admins ;usermod -G admins -s /sbin/nologin slackware<br></code></pre></td></tr></table></figure>
+
+<p><strong>创建用户user1、user2、user3。在/data/下创建目录test</strong></p>
+<p><strong>目录/data/test属主、属组为user1</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">chown</span> user1 /data/test/ ;<span class="hljs-built_in">chgrp</span> user1 /data/test<br></code></pre></td></tr></table></figure>
+
+<p><strong>在目录属主、属组不变的情况下，user2对文件有读写权限</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">setfacl -m u:user2:rw /data/test/<br></code></pre></td></tr></table></figure>
+
+<p><strong>user1在/data/test目录下创建文件a1.sh, a2.sh, a3.sh, a4.sh，设置所有用户都不可删除1.sh，2.sh文件、除了user1及root之外，所有用户都不可删除a3.sh, a4.sh</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">chattr +a a&#123;1..2&#125;.sh <br><span class="hljs-built_in">chmod</span> o+t /data/test<br></code></pre></td></tr></table></figure>
+
+<p> <strong>user3增加附加组user1，同时要求user1不能访问/data/test目录及其下所有文件</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">usermod -a -G user1 user3<br>[root@ansible <span class="hljs-built_in">test</span>]<span class="hljs-comment"># id user3</span><br>uid=2005(user3) gid=2005(user3) 组=2005(user3),2003(user1)<br>setfacl -m u:user1:--- /data/test/<br></code></pre></td></tr></table></figure>
+
+<p><strong>清理/data/test目录及其下所有文件的acl权限</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs bash">chattr -a a&#123;1..2&#125;.sh;setfacl -Rb /data/test/<br><br>lsattr ;getfacl /data/test/<br>---------------- ./a1.sh<br>---------------- ./a2.sh<br>---------------- ./a3.sh<br>---------------- ./a4.sh<br>getfacl: Removing leading <span class="hljs-string">&#x27;/&#x27;</span> from absolute path names<br>\<span class="hljs-comment"># file: data/test/</span><br>\<span class="hljs-comment"># owner: user1</span><br>\<span class="hljs-comment"># group: user1</span><br>\<span class="hljs-comment"># flags: --t</span><br>user::rwx<br>group::r-x<br>other::r--<br></code></pre></td></tr></table></figure>
+
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E4%BD%9C%E4%B8%9A/">作业</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/LINUX/">LINUX</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/05/16/%E7%AC%AC%E4%B8%89%E5%91%A8%E4%BD%9C%E4%B8%9A/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">第三周作业</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/05/16/PXE%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2centos7/">
+                        <span class="hidden-mobile">PXE自动化部署centos7</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

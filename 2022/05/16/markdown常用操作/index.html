@@ -1,0 +1,637 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="日常操作段落和换行符段落只是一行或多行连续的文本。在markdown源代码中，段落由两个或多个空行分隔。在Typora中，您只需要一个空行（按Enter一次）即可创建一个新段落。 按Shift+ Enter可创建单个换行符。大多数其他降价解析器将忽略单换行符，因此为了使其他降价解析器识别换行符，您可以在行的末尾留下两个空格，或者插入&lt;br&#x2F;&gt;。 头|标题标题#在行的开头使用1-6个h">
+<meta property="og:type" content="article">
+<meta property="og:title" content="（转）markdow常用操作">
+<meta property="og:url" content="http://example.com/2022/05/16/markdown%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/index.html">
+<meta property="og:site_name" content="陈濛的博客">
+<meta property="og:description" content="日常操作段落和换行符段落只是一行或多行连续的文本。在markdown源代码中，段落由两个或多个空行分隔。在Typora中，您只需要一个空行（按Enter一次）即可创建一个新段落。 按Shift+ Enter可创建单个换行符。大多数其他降价解析器将忽略单换行符，因此为了使其他降价解析器识别换行符，您可以在行的末尾留下两个空格，或者插入&lt;br&#x2F;&gt;。 头|标题标题#在行的开头使用1-6个h">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2022/05/16/markdown%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/m164jw8vb1-16541671067841.gif">
+<meta property="og:image" content="http://example.com/2022/05/16/markdown%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/1620-16541671216902">
+<meta property="og:image" content="http://example.com/2022/05/16/markdown%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/1621-16541671289993">
+<meta property="og:image" content="http://example.com/2022/05/16/markdown%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/fnpfndqvob-16541671355794.gif">
+<meta property="og:image" content="http://example.com/2022/05/16/markdown%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/1622-16541671466705">
+<meta property="og:image" content="http://example.com/2022/05/16/markdown%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/1623-16541671529346">
+<meta property="og:image" content="http://example.com/2022/05/16/markdown%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/1624-16541671601787">
+<meta property="og:image" content="http://example.com/2022/05/16/markdown%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/1620-16541685416171.png">
+<meta property="og:image" content="http://example.com/2022/05/16/markdown%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/oq0jyvu3j3-16541671673698.gif">
+<meta property="og:image" content="http://example.com/2022/05/16/markdown%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/1625-16541671762219">
+<meta property="og:image" content="http://example.com/2022/05/16/markdown%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/1626-165416718551210">
+<meta property="og:image" content="http://example.com/2022/05/16/markdown%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/1627-165416719237111">
+<meta property="og:image" content="http://example.com/2022/05/16/markdown%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/1628-165416719956812">
+<meta property="og:image" content="http://example.com/2022/05/16/markdown%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/1629-165416720576513">
+<meta property="og:image" content="http://example.com/2022/05/16/markdown%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/1630-165416721232014">
+<meta property="og:image" content="http://example.com/2022/05/16/markdown%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/1631-165416722061515">
+<meta property="og:image" content="http://example.com/2022/05/16/markdown%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/1632-165416722651516">
+<meta property="og:image" content="http://example.com/2022/05/16/markdown%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/1633-165416723760617">
+<meta property="og:image" content="http://example.com/2022/05/16/markdown%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/1634-165416724411418">
+<meta property="og:image" content="http://example.com/2022/05/16/markdown%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/1635-165416725022619">
+<meta property="og:image" content="http://example.com/2022/05/16/markdown%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/1636-165416725682020">
+<meta property="og:image" content="http://example.com/2022/05/16/markdown%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/1637-165416726217221">
+<meta property="og:image" content="http://example.com/2022/05/16/markdown%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/1638-165416726709122">
+<meta property="og:image" content="http://example.com/2022/05/16/markdown%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/1639-165416728159723">
+<meta property="og:image" content="http://example.com/2022/05/16/markdown%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/1640-165416728930724">
+<meta property="og:image" content="http://example.com/2022/05/16/markdown%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/1641-165416729482325">
+<meta property="og:image" content="http://example.com/2022/05/16/markdown%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/1642-165416729994926">
+<meta property="og:image" content="http://example.com/2022/05/16/markdown%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/1643-165416730541827">
+<meta property="og:image" content="http://example.com/2022/05/16/markdown%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/1644-165416731398228">
+<meta property="og:image" content="http://example.com/2022/05/16/markdown%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/1645-165416732211929">
+<meta property="article:published_time" content="2022-05-16T22:15:17.000Z">
+<meta property="article:modified_time" content="2022-06-02T11:16:49.549Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="MARKDOWN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://example.com/2022/05/16/markdown%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/m164jw8vb1-16541671067841.gif">
+  
+  
+  <title>（转）markdow常用操作 - 陈濛的博客</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.14","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="（转）markdow常用操作">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2022-05-16 22:15" pubdate>
+        May 16, 2022 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.7k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      32 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">（转）markdow常用操作</h1>
+            
+            <div class="markdown-body">
+              <hr>
+<h1 id="日常操作"><a href="#日常操作" class="headerlink" title="日常操作"></a><font size=5>日常操作</font></h1><h2 id="段落和换行符"><a href="#段落和换行符" class="headerlink" title="段落和换行符"></a><font size=3>段落和换行符</font></h2><p>段落只是一行或多行连续的文本。在markdown源代码中，段落由两个或多个空行分隔。在Typora中，您只需要一个空行（按Enter一次）即可创建一个新段落。</p>
+<p>按<code>Shift</code>+ Enter可创建单个换行符。大多数其他降价解析器将忽略单换行符，因此为了使其他降价解析器识别换行符，您可以在行的末尾留下两个空格，或者插入<code>&lt;br/&gt;</code>。</p>
+<h2 id="头-标题"><a href="#头-标题" class="headerlink" title="头|标题"></a><font size=3>头|标题</font></h2><p>标题<code>#</code>在行的开头使用1-6个hash（）字符，对应于标题级别1-6。例如</p>
+<figure class="highlight clean"><table><tr><td class="gutter"><div class="code-wrapper"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></div></td><td class="code"><pre><code class="hljs clean"># 这是一级标题 h1<br>## 这是二级标题 h2<br>### 这是三级标题 h3<br>#### 这是四级标题 h4<br>##### 这是五级标题 h5<br>###### 这是六级标题 h6<br></code></pre></td></tr></table></figure>
+
+<p><strong>在Typora中，输入’＃’后跟标题内容，Enter按键将创建标题。</strong></p>
+<p><strong>操作实现效果如下GIF：</strong></p>
+<p><img src="m164jw8vb1-16541671067841.gif" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h2 id="段落"><a href="#段落" class="headerlink" title="段落"></a><font size=3>段落</font></h2><p>Markdown 段落没有特殊的格式，直接编写文字就好，<strong>段落的换行是使用两个以上空格加上回车。</strong></p>
+<p><img src="1620-16541671216902" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>当然也可以在段落后面使用一个空行来表示重新开始一个段落。</p>
+<p><img src="1621-16541671289993" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h2 id="字体"><a href="#字体" class="headerlink" title="字体"></a><font size=3>字体</font></h2><p>Markdown 可以使用以下几种字体：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs javascript">*斜体文本*<br>_斜体文本_<br>**粗体文本**<br>__粗体文本__<br>***粗斜体文本***<br>___粗斜体文本___<br></code></pre></td></tr></table></figure>
+
+<p><strong>操作实现效果如下GIF：</strong></p>
+<p><img src="fnpfndqvob-16541671355794.gif" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a><font size=3>分割线</font></h2><p>你可以在一行中用三个以上的星号、减号、底线来建立一个分隔线，行内不能有其他东西。你也可以在星号或是减号中间插入空格。下面每种写法都可以建立分隔线：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs javascript">***<br>* * *<br><br>*****<br><br>- - -<br><br>----------<br></code></pre></td></tr></table></figure>
+
+<p><strong>操作实现效果如下：</strong></p>
+<p><img src="1622-16541671466705" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h2 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a><font size=4>删除线</font></h2><p>如果段落上的文字要添加删除线，只需要在文字的两端加上两个波浪线 ~~ 即可，实例如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript">baidu.<span class="hljs-property">com</span><br>google.<span class="hljs-property">com</span><br>~~taobao.<span class="hljs-property">com</span>~~<br></code></pre></td></tr></table></figure>
+
+<p><strong>操作实现效果如下：</strong></p>
+<p><img src="1623-16541671529346" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h2 id="下划线"><a href="#下划线" class="headerlink" title="下划线"></a><font size=3>下划线</font></h2><p>下划线可以通过 HTML 的 <u> 标签来实现：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&lt;u&gt;带下划线文本&lt;/u&gt;<br></code></pre></td></tr></table></figure>
+
+<p><strong>显示效果如下所示：</strong></p>
+<p><img src="1624-16541671601787" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><img src="1620-16541685416171.png" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h2 id="脚注"><a href="#脚注" class="headerlink" title=" 脚注"></a><font size=3> 脚注</font></h2><p>脚注是对文本的补充说明。</p>
+<p>Markdown 脚注的格式如下:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript">[^要注明的文本]<br></code></pre></td></tr></table></figure>
+
+<p>以下实例演示了脚注的用法：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript">创建脚注格式类似这样 [^<span class="hljs-variable constant_">RUNOOB</span>]。<br><br>[^<span class="hljs-variable constant_">RUNOOB</span>]: 【离不开的网】 -- 输出更多好文章！！！<br></code></pre></td></tr></table></figure>
+
+<p><strong>操作实现效果如下GIF：</strong></p>
+<p><img src="oq0jyvu3j3-16541671673698.gif" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a><font size=3>列表</font></h2><p>Markdown 支持<strong>有序列表</strong>和<strong>无序列表</strong>。</p>
+<p>无序列表使用星号(<em>****)、加号(<strong>+</strong>)或是减号(</em>*-**)作为列表标记：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs javascript">* 第一项<br>* 第二项<br>* 第三项<br><br>+ 第一项<br>+ 第二项<br>+ 第三项<br><br><br>- 第一项<br>- 第二项<br>- 第三项<br></code></pre></td></tr></table></figure>
+
+<p><strong>显示结果如下：</strong></p>
+<p><img src="1625-16541671762219" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>有序列表使用数字并加上 <strong>.</strong> 号来表示，如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-number">1.</span> 第一项<br><span class="hljs-number">2.</span> 第二项<br><span class="hljs-number">3.</span> 第三项<br></code></pre></td></tr></table></figure>
+
+<p><strong>显示结果如下：</strong></p>
+<p><img src="1626-165416718551210" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h3 id="列表嵌套"><a href="#列表嵌套" class="headerlink" title="列表嵌套"></a><font size=2>列表嵌套</font></h3><p>列表嵌套只需在子列表中的选项添加四个空格或Tab即可：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-number">1.</span> 第一项：<br>   - 第一项嵌套的第一个元素<br>   - 第一项嵌套的第二个元素<br><br><span class="hljs-number">2.</span> 第二项：<br>   - 第二项嵌套的第一个元素<br>   - 第二项嵌套的第一个元素<br></code></pre></td></tr></table></figure>
+
+<p><strong>显示结果如下：</strong></p>
+<p><img src="1627-165416719237111" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h2 id="区块"><a href="#区块" class="headerlink" title="区块"></a><font size=3>区块</font></h2><p>Markdown 区块引用是在段落开头使用 <strong>&gt;</strong> 符号 ，然后后面紧跟一个<strong>空格</strong>符号：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&gt; <span class="hljs-title class_">Markdown</span> 区块教程<br>&gt; 微信公众号【离不开的网】<br>&gt; 关注得更多精彩内容<br></code></pre></td></tr></table></figure>
+
+<p><strong>显示结果如下：</strong></p>
+<p><img src="1628-165416719956812" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>另外区块是可以嵌套的，一个 <strong>&gt;</strong> 符号是最外层，两个 <strong>&gt;</strong> 符号是第一层嵌套，以此类推：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&gt; 最外层<br>&gt; &gt; 第一层嵌套<br>&gt; &gt; &gt; 第二层嵌套<br></code></pre></td></tr></table></figure>
+
+<p><strong>显示结果如下：</strong></p>
+<p><img src="1629-165416720576513" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>1.11.1 区块中使用列表</p>
+<p>区块中使用列表实例如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&gt; 区块中使用列表<br>&gt;&gt; <span class="hljs-number">1.</span> 第一项&gt; <span class="hljs-number">2.</span> 第二项&gt;&gt; - 第一项&gt; - 第二项&gt; - 第三项<br></code></pre></td></tr></table></figure>
+
+<p><strong>显示结果如下：</strong></p>
+<p><img src="1630-165416721232014" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h3 id="列表中使用区块"><a href="#列表中使用区块" class="headerlink" title="列表中使用区块"></a><font size=3>列表中使用区块</font></h3><p>如果要在列表项目内放进区块，那么就需要在 &gt; 前添加四个空格的缩进。</p>
+<p>区块中使用列表实例如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript">- 第一项<br>  &gt; 【离不开的网】  &gt; 关注得更多精彩内容<br>- 第二项<br></code></pre></td></tr></table></figure>
+
+<p><strong>显示效果如下：</strong></p>
+<p><img src="1631-165416722061515" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h2 id="代码"><a href="#代码" class="headerlink" title=" 代码"></a><font size=3> 代码</font></h2><p>如果是段落上的一个函数或片段的代码可以用反引号把它包起来（**`**），例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-string">`abs()`</span>绝对值函数<br></code></pre></td></tr></table></figure>
+
+<p><strong>显示结果如下：</strong></p>
+<p><img src="1632-165416722651516" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><strong>注：可能很多人打错这个符号 `</strong> <strong>，这个符号是在tab的上面，切换成英文输入点击（tab上方、数字1左边）的键即可。</strong></p>
+<h3 id="代码区块"><a href="#代码区块" class="headerlink" title="代码区块"></a><font size=2>代码区块</font></h3><p>代码区块使用 <strong>4 个空格</strong>或者一个<strong>制表符（Tab 键）</strong>。</p>
+<p>实例如下：</p>
+<p><img src="1633-165416723760617" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><strong>显示结果如下：</strong></p>
+<p><img src="1634-165416724411418" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>你也可以用 <strong>```</strong> 包裹一段代码，并指定一种语言（也可以不指定）：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-string">``</span><span class="hljs-string">`javascript</span><br><span class="hljs-string">$(document).ready(function () &#123;</span><br><span class="hljs-string">   alert(&#x27;离不开的网&#x27;);</span><br><span class="hljs-string">&#125;);</span><br><span class="hljs-string">`</span><span class="hljs-string">``</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>显示结果如下：</strong></p>
+<p><img src="1635-165416725022619" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h2 id="链接"><a href="#链接" class="headerlink" title=" 链接"></a><font size=3> 链接</font></h2><p>链接使用方法如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript">[链接名称](链接地址)<br>或者<br>&lt;链接地址&gt;<br></code></pre></td></tr></table></figure>
+
+<p><strong>如下面这个例子：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript">这是一个链接 [百度链接](<span class="hljs-attr">https</span>:<span class="hljs-comment">//www.baidu.com)</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>显示结果如下：</strong></p>
+<p><img src="1636-165416725682020" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><strong>直接使用链接地址：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&lt;www.<span class="hljs-property">baidu</span>.<span class="hljs-property">com</span>&gt;<br></code></pre></td></tr></table></figure>
+
+<p><strong>显示结果如下：</strong></p>
+<p><img src="1637-165416726217221" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h3 id="高级链接"><a href="#高级链接" class="headerlink" title="高级链接"></a><font size=2>高级链接</font></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs javascript">链接也可以用变量来代替，文档末尾附带变量地址：<br>这个链接用 <span class="hljs-number">1</span> 作为网址变量 [<span class="hljs-title class_">Google</span>][<span class="hljs-number">1</span>]<br>这个链接用 baidu 作为网址变量 [<span class="hljs-title class_">Baidu</span>][baidu]<br>然后在文档的结尾为变量赋值（网址）<br><br><br><span class="hljs-string">``</span><span class="hljs-string">`[1]: http://www.google.com/</span><br><span class="hljs-string">[baidu]: http://www.baidu.com/`</span><span class="hljs-string">``</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>显示结果如下：</strong></p>
+<p><img src="1638-165416726709122" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a><font size=3>图片</font></h2><p>Markdown 图片语法格式如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript">![alt 属性文本](图片地址)<br><br>![alt 属性文本](图片地址 <span class="hljs-string">&quot;可选标题&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>开头一个感叹号 !</li>
+<li>接着一个方括号，里面放上图片的替代文字</li>
+<li>接着一个普通括号，里面放上图片的网址，最后还可以用引号包住并加上选择性的 ‘title’ 属性的文字。</li>
+</ul>
+<p><strong>使用实例：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript">![baidu 图标](<span class="hljs-attr">https</span>:<span class="hljs-comment">//www.baidu.com/img/bd_logo1.png )</span><br>![baidu 图标](<span class="hljs-attr">https</span>:<span class="hljs-comment">//www.baidu.com/img/bd_logo1.png  &quot;baidu&quot;)</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>显示结果如下：</strong></p>
+<p><img src="1639-165416728159723" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p>当然，你也可以像网址那样对图片网址使用变量:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript">这个链接用 <span class="hljs-number">1</span> 作为网址变量 [baidu][<span class="hljs-number">1</span>].<br>然后在文档的结尾位变量赋值（网址）<br><br>[<span class="hljs-number">1</span>]: <span class="hljs-attr">https</span>:<span class="hljs-comment">//www.baidu.com/img/bd_logo1.png</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>Markdown 还没有办法指定图片的高度与宽度，如果你需要的话，你可以使用普通的 <img> 标签。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&lt;img src=<span class="hljs-string">&quot;https://www.baidu.com/img/bd_logo1.png&quot;</span> width=<span class="hljs-string">&quot;50%&quot;</span>&gt;<br></code></pre></td></tr></table></figure>
+
+<p><strong>显示结果如下：</strong></p>
+<p><img src="1640-165416728930724" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a><font size=3>表格</font></h2><p>Markdown 制作表格使用 <strong>|</strong> 来分隔不同的单元格，使用 <strong>-</strong> 来分隔表头和其他行。</p>
+<p>语法格式如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript">| 表头   | 表头   || ------ | ------ || 单元格 | 单元格 || 单元格 | 单元格 |<br></code></pre></td></tr></table></figure>
+
+<p><strong>显示效果如下：</strong></p>
+<p><img src="1641-165416729482325" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h3 id="对齐方式"><a href="#对齐方式" class="headerlink" title=" 对齐方式"></a><font size=2> 对齐方式</font></h3><p><strong>我们可以设置表格的对齐方式：</strong></p>
+<ul>
+<li><strong>-: 设置内容和标题栏居右对齐。</strong></li>
+<li><strong>:- 设置内容和标题栏居左对齐。</strong></li>
+<li><strong>:-: 设置内容和标题栏居中对齐。</strong></li>
+</ul>
+<p>实例如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript">| 左对齐 | 右对齐 | 居中对齐 || :----- | -----: | :------: || 单元格 | 单元格 |  单元格  || 单元格 | 单元格 |  单元格  |<br></code></pre></td></tr></table></figure>
+
+<p><strong>显示效果如下：</strong></p>
+<p><img src="1642-165416729994926" srcset="/img/loading.gif" lazyload alt="img"></p>
+<h1 id="Markdown高级操作技巧"><a href="#Markdown高级操作技巧" class="headerlink" title="Markdown高级操作技巧"></a><font size=5>Markdown高级操作技巧</font></h1><h2 id="转义"><a href="#转义" class="headerlink" title=" 转义"></a><font size=3> 转义</font></h2><p>Markdown 使用了很多特殊符号来表示特定的意义，如果需要显示特定的符号则需要使用转义字符，Markdown 使用反斜杠转义特殊字符：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript">**文本加粗** \*\* 正常显示星号 \*\*<br></code></pre></td></tr></table></figure>
+
+<p><strong>显示效果如下：</strong></p>
+<p><img src="1643-165416730541827" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><strong>Markdown 支持以下这些符号前面加上反斜杠来帮助插入普通的符号：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs javascript">\   反斜线<span class="hljs-string">`   反引号</span><br><span class="hljs-string">*   星号</span><br><span class="hljs-string">_   下划线</span><br><span class="hljs-string">&#123;&#125;  花括号</span><br><span class="hljs-string">[]  方括号</span><br><span class="hljs-string">()  小括号</span><br><span class="hljs-string">#   井字号</span><br><span class="hljs-string">+   加号</span><br><span class="hljs-string">-   减号</span><br><span class="hljs-string">.   英文句点</span><br><span class="hljs-string">!   感叹号*   星号</span><br><span class="hljs-string">_   下划线</span><br><span class="hljs-string">&#123;&#125;  花括号</span><br><span class="hljs-string">[]  方括号</span><br><span class="hljs-string">()  小括号</span><br><span class="hljs-string">#   井字号</span><br><span class="hljs-string">+   加号</span><br><span class="hljs-string">-   减号</span><br><span class="hljs-string">.   英文句点</span><br><span class="hljs-string">!   感叹号</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="公式"><a href="#公式" class="headerlink" title="公式"></a><font size=3>公式</font></h2><p>当你需要在编辑器中插入数学公式时，可以使用两个美元符 $$ 包裹 TeX 或 LaTeX 格式的数学公式来实现。提交后，问答和文章页会根据需要加载 Mathjax 对数学公式进行渲染。如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs javascript">$$<br>\mathbf&#123;V&#125;_1 \times \mathbf&#123;V&#125;_2 =  \begin&#123;vmatrix&#125;<br>\mathbf&#123;i&#125; &amp; \mathbf&#123;j&#125; &amp; \mathbf&#123;k&#125; \\<br>\frac&#123;\partial X&#125;&#123;\partial u&#125; &amp;  \frac&#123;\partial Y&#125;&#123;\partial u&#125; &amp; <span class="hljs-number">0</span> \\<br>\frac&#123;\partial X&#125;&#123;\partial v&#125; &amp;  \frac&#123;\partial Y&#125;&#123;\partial v&#125; &amp; <span class="hljs-number">0</span> \\<br>\end&#123;vmatrix&#125;<br>$$tep1&#125;&#123;\style&#123;<span class="hljs-attr">visibility</span>:hidden&#125;&#123;(x+<span class="hljs-number">1</span>)(x+<span class="hljs-number">1</span>)&#125;&#125;<br>$$<br></code></pre></td></tr></table></figure>
+
+<p><strong>结果如下图所示：</strong></p>
+<p><img src="1644-165416731398228" srcset="/img/loading.gif" lazyload alt="img"></p>
+<p><img src="1645-165416732211929" srcset="/img/loading.gif" lazyload alt="img"></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/MARKDOWN/">MARKDOWN</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/05/17/%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">快速搭建个人博客</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/05/16/markdow%E4%BD%BF%E7%94%A8/">
+                        <span class="hidden-mobile">markdow使用</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+        typing(title);
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
